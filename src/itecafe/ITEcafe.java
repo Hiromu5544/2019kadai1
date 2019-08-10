@@ -1,12 +1,11 @@
-
 package itecafe;
 
+import java.util.Scanner;
 
 public class ITEcafe {
 
-    
     public static void main(String[] args) {
-        
+
         Item hotcoffee = new Item(1, "ホットコーヒー", 280);
 
         Item tea = new Item(2, "紅茶", 260);
@@ -34,7 +33,6 @@ public class ITEcafe {
         Item toastSandwich = new Item(13, "トーストサンド", 200);
 
         Item frenchToast = new Item(14, "フレンチトースト", 210);
-
         Item[] items = new Item[14];
 
         items[0] = hotcoffee;
@@ -64,12 +62,38 @@ public class ITEcafe {
         items[12] = toastSandwich;
 
         items[13] = frenchToast;
-        
+        while (true);
+        System.out.println("ITEカフェシステム");
+        int goukei = 0;
+        String input;
+        Scanner sc = new Scanner(System.in);
+        int num;
+        while (true) {
+            System.out.println("商品番号を入力してください");
 
-        
+            input = sc.next();
+            num = Integer.parseInt(input);
+
+            int price = items[num - 1].getPrice();
+            System.out.println("数量を入力してください");
+
+            input = sc.next();
+            num = Integer.parseInt(input);
+            goukei += price * num;
+            System.out.println("合計金額" + goukei);
+            System.out.println("以上なら１を入力");
+
+            input = sc.next();
+            num = Integer.parseInt(input);
+            if (num == 1) {
+                break;
+
+            }
+        }
+        System.out.println("預り金を入力してください");
+        input = sc.next();
+        num = Integer.parseInt(input);
+        System.out.println("お釣りは" + (num - goukei) + "です");
     }
-}
-
     
-
-
+}
